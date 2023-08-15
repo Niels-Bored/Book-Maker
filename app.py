@@ -13,8 +13,12 @@ app.secret_key = b'bb,hjd87li7fiopsddfrgt5'
 CURRENT_FOLDER = os.path.dirname(__file__)
 STATIC_FOLDER = os.path.join(CURRENT_FOLDER, "static")
 
-@app.route("/getbook/")
+@app.route("/")
 def index():
+    return {"status": "ok"}
+
+@app.route("/getbook/")
+def getbook():
     child_name = request.args.get("child_name")
     child_fullname = request.args.get("child_fullname")
     date = request.args.get("date")

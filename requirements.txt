@@ -3,5 +3,4 @@ reportlab==3.6.12
 PyPDF2==2.12.1
 python-dotenv==0.21.0
 Flask-Cors==3.0.10
-
-
+gunicorn==21.2.0
