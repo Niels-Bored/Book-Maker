@@ -1,8 +1,9 @@
 import os
 import io
+import textwrap
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter, landscape
+from reportlab.lib.pagesizes import letter
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
@@ -22,19 +23,19 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c = canvas.Canvas(packet, letter)
 
 	encabezado1 = f"Dear {child_name}"
-	encabezado2 = "Welcome to a world filled with"
+	encabezado2 = f"{dedication}"
 	encabezado3 = "adventure and fun."
 	encabezado4 = "I will allways love you"
 	encabezado5 = "precious little one."
 
+	wrapper = textwrap.TextWrapper(width=30)
+	word_list = wrapper.wrap(text = dedication)
+	position = 480
 	#Página 1
-	c.setFont('pete', 50)
-	c.drawString(200-(len(encabezado1)/2)*7.5, 500, encabezado1)
-	c.setFont('pete', 30)
-	c.drawString(210-(len(encabezado2)/2)*7.5, 440, encabezado2)
-	c.drawString(230-(len(encabezado3)/2)*7.5, 400, encabezado3)
-	c.drawString(230-(len(encabezado4)/2)*7.5, 360, encabezado4)
-	c.drawString(240-(len(encabezado5)/2)*7.5, 320, encabezado5)
+	c.setFont('pete', 25)
+	for element in word_list:
+		c.drawString(230-(len(element)/2)*7.5, position, element)
+		position-=40
 
 	c.showPage()
 	
@@ -161,4 +162,4 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	output_stream.close()
 	
 if __name__=='__main__':
-	generatePDF("Name","Here is an example full name", "17 February 2017", "")
+	generatePDF("Name","Here is an example full name", "17 February 2017", "Dear Person, this is a test to verify how a dedication would look like on the final document")
