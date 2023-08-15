@@ -15,7 +15,7 @@ STATIC_FOLDER = os.path.join(CURRENT_FOLDER, "static")
 
 @app.route("/")
 def index():
-    return {"status": "ok"}
+    return {"status": "running"}
 
 @app.route("/getbook/")
 def getbook():
