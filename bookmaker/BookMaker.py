@@ -8,7 +8,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 current_folder = os.path.dirname (__file__)
 parent_folder = os.path.dirname (current_folder)
-files_folder = os.path.join (parent_folder, "files")
+files_folder = os.path.join (parent_folder, "static")
 original_pdf = os.path.join (current_folder, f"book_template_1.pdf")
 emilya_font = os.path.join (current_folder, f"emilya_birthday.ttf")
 pete_font = os.path.join (current_folder, f"pete_15.ttf")
@@ -161,4 +161,4 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	output_stream.close()
 	
 if __name__=='__main__':
-	generatePDF("Zanna","Zanna Anne Loyce Butcher", "17 February 2017", "")
+	generatePDF("Name","Here is an example full name", "17 February 2017", "")
