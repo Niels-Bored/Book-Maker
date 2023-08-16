@@ -3,7 +3,7 @@ import io
 import textwrap
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import letter, landscape
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
@@ -11,6 +11,7 @@ current_folder = os.path.dirname (__file__)
 parent_folder = os.path.dirname (current_folder)
 files_folder = os.path.join (parent_folder, "static")
 original_pdf = os.path.join (current_folder, f"book_template_1.pdf")
+cover_pdf = os.path.join (current_folder, f"cover_template_1.pdf")
 emilya_font = os.path.join (current_folder, f"emilya_birthday.ttf")
 pete_font = os.path.join (current_folder, f"pete_15.ttf")
 arial_font = os.path.join (current_folder, f"arial_bold.ttf")
@@ -33,6 +34,24 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	wrapper = textwrap.TextWrapper(width=30)
 	word_list = wrapper.wrap(text = dedication)
 	position = 480
+
+	#Portada
+	custom_page_size = (1200, 600)
+	c.setPageSize(custom_page_size)
+	c.setFillColorRGB(1, 1, 0.2, 1)
+	c.setFont('emilya', 50)
+	c.drawString(300-(len(child_name)/2)*7.5, 450, child_name)
+	c.setFont('emilya', 110)
+	c.drawString(860-(len(child_name)/2)*10, 490, child_name)
+
+	c.setFont('arial', 80)
+	c.setFillColorRGB(0, 0, 0, 0.5)
+	c.drawString(100, 400, "SAMPLE")
+
+	c.showPage()
+
+	c.setPageSize(letter)
+	
 	#Página 1
 	c.setFont('pete', 25)
 	for element in word_list:
@@ -160,6 +179,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	new_pdf = PdfFileReader(packet)
 	
+	existin_cover_pdf = PdfFileReader(open(cover_pdf, "rb"))
 	existing_pdf = PdfFileReader(open(original_pdf, "rb"))
 	output = PdfFileWriter()
 	
@@ -210,9 +230,13 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	page=existing_pdf.pages[29]
 	output.add_page(page) """
 
+	page = existin_cover_pdf.pages[0]
+	page.merge_page(new_pdf.pages[0])
+	output.add_page(page)
+
 	for i in range(30):
 		page = existing_pdf.pages[i]
-		page.merge_page(new_pdf.pages[i])
+		page.merge_page(new_pdf.pages[i+1])
 		output.add_page(page)
 
 	new_pdf = os.path.join (files_folder, f"{child_name}.pdf")
