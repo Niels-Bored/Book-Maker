@@ -93,7 +93,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.showPage()
 
-	for i in range(3):
+	for i in range(4):
 		c.setFont('arial', 80)
 		c.setFillColorRGB(0, 0, 0, 0.5)
 		c.drawString(100, 400, "SAMPLE")
@@ -234,9 +234,9 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	page.merge_page(new_pdf.pages[0])
 	output.add_page(page)
 
-	for i in range(30):
-		page = existing_pdf.pages[i]
-		page.merge_page(new_pdf.pages[i+1])
+	for i in range(1, 31):
+		page = existing_pdf.pages[i-1]
+		page.merge_page(new_pdf.pages[i])
 		output.add_page(page)
 
 	new_pdf = os.path.join (files_folder, f"{child_name}.pdf")
