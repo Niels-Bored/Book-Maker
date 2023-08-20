@@ -11,7 +11,6 @@ current_folder = os.path.dirname (__file__)
 parent_folder = os.path.dirname (current_folder)
 files_folder = os.path.join (parent_folder, "static")
 original_pdf = os.path.join (current_folder, f"book_template_1.pdf")
-cover_pdf = os.path.join (current_folder, f"cover_template_1.pdf")
 emilya_font = os.path.join (current_folder, f"emilya_birthday.ttf")
 pete_font = os.path.join (current_folder, f"pete_15.ttf")
 arial_font = os.path.join (current_folder, f"arial_bold.ttf")
@@ -36,26 +35,24 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	position = 480
 
 	#Portada
-	custom_page_size = (1200, 600)
+	custom_page_size = (1200, 1000)
 	c.setPageSize(custom_page_size)
 	c.setFillColorRGB(1, 1, 0.2, 1)
 	c.setFont('emilya', 50)
-	c.drawString(300-(len(child_name)/2)*7.5, 450, child_name)
+	c.drawString(255-(len(child_name)/2)*7.5, 360, child_name)
 	c.setFont('emilya', 110)
-	c.drawString(860-(len(child_name)/2)*10, 490, child_name)
+	c.drawString(800-(len(child_name)/2)*10, 390, child_name)
 
 	c.setFont('arial', 80)
 	c.setFillColorRGB(0, 0, 0, 0.5)
 	c.drawString(100, 400, "SAMPLE")
 
 	c.showPage()
-
-	c.setPageSize(letter)
 	
 	#Página 1
 	c.setFont('pete', 25)
 	for element in word_list:
-		c.drawString(250-(len(element)/2)*7.5, position, element)
+		c.drawString(810-(len(element)/2)*7.5, position, element)
 		position-=40
 	
 	c.setFont('arial', 80)
@@ -73,19 +70,16 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.setFillColorRGB(0, 0, 0, 0.5)
 	c.drawString(100, 400, "SAMPLE")
 
-	c.showPage()
-
 	encabezado1 = "Ten little fingers"
 	encabezado2 = "Ten tiny toes"
 	encabezado3 = f"{child_name} you are perfect"
 	encabezado4 = "With a cute button nose"
 
-	#Página 3
 	c.setFont('pete', 30)
-	c.drawString(180-(len(encabezado1)/2)*7.5, 640, encabezado1)
-	c.drawString(180-(len(encabezado2)/2)*7.5, 600, encabezado2)
-	c.drawString(160-(len(encabezado3)/2)*7.5, 560, encabezado3)
-	c.drawString(160-(len(encabezado4)/2)*7.5, 520, encabezado4)
+	c.drawString(720-(len(encabezado1)/2)*7.5, 640, encabezado1)
+	c.drawString(720-(len(encabezado2)/2)*7.5, 600, encabezado2)
+	c.drawString(700-(len(encabezado3)/2)*7.5, 560, encabezado3)
+	c.drawString(700-(len(encabezado4)/2)*7.5, 520, encabezado4)
 
 	c.setFont('arial', 80)
 	c.setFillColorRGB(0, 0, 0, 0.5)
@@ -93,7 +87,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.showPage()
 
-	for i in range(4):
+	for i in range(2):
 		c.setFont('arial', 80)
 		c.setFillColorRGB(0, 0, 0, 0.5)
 		c.drawString(100, 400, "SAMPLE")
@@ -105,7 +99,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	encabezado3 = "You light up our life"
 	encabezado4 = "Our own superstar"
 
-	#Página 4
+	#Página 3
 	c.setFont('pete', 30)
 	c.setFillColorRGB(255, 255, 255, 1)
 	c.drawString(190-(len(encabezado1)/2)*7.5, 210, encabezado1)
@@ -119,7 +113,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.showPage()
 
-	for i in range(17):
+	for i in range(8):
 		c.setFont('arial', 80)
 		c.setFillColorRGB(0, 0, 0, 0.5)
 		c.drawString(100, 400, "SAMPLE")
@@ -129,7 +123,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	encabezado1 = f"But for now {child_name}"
 	encabezado2 = "We'll wait for the adventures you'll take"
 
-	#Página 5
+	#Página 4
 	c.setFont('pete', 25)
 	c.setFillColorRGB(255, 255, 255, 1)
 	c.drawString(260-(len(encabezado1)/2)*7.5, 130, encabezado1)
@@ -141,19 +135,13 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.showPage()
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")
-
-	c.showPage()
-
 	encabezado1 = f"{child_name} our sweet gift"
 	encabezado2 = "That we love and adore"
 	encabezado3 = "As the days go by"
 	encabezado4 = "We love you more and more"
 
 
-	#Página 6
+	#Página 5
 	c.setFont('pete', 25)
 	c.drawString(260-(len(encabezado1)/2)*7.5, 160, encabezado1)
 	c.drawString(255-(len(encabezado2)/2)*7.5, 130, encabezado2)
@@ -178,64 +166,12 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	packet.seek(0)
 
 	new_pdf = PdfFileReader(packet)
-	
-	existin_cover_pdf = PdfFileReader(open(cover_pdf, "rb"))
+
 	existing_pdf = PdfFileReader(open(original_pdf, "rb"))
 	output = PdfFileWriter()
 	
-	""" #Primera Página Editada
-	page = existing_pdf.pages[0]
-	page.merge_page(new_pdf.pages[0])
-	output.add_page(page)
-
-	#Segunda Página Editada
-	page = existing_pdf.pages[1]
-	page.merge_page(new_pdf.pages[1])
-	output.add_page(page)
-
-	#Tercera Página Editada
-	page = existing_pdf.pages[2]
-	page.merge_page(new_pdf.pages[2])
-	output.add_page(page)
-
-	for i in range (3, 6):
-		page=existing_pdf.pages[i]
-		output.add_page(page)
-
-	#Cuarta Página Editada
-	page = existing_pdf.pages[7]
-	page.merge_page(new_pdf.pages[3])
-	output.add_page(page)
-
-	for i in range (8, 25):
-		page=existing_pdf.pages[i]
-		output.add_page(page) 
-	
-	#Quinta Página Editada
-	page = existing_pdf.pages[25]
-	page.merge_page(new_pdf.pages[4])
-	output.add_page(page)
-
-	page=existing_pdf.pages[26]
-	output.add_page(page)
-
-	#Sexta Página Editada
-	page = existing_pdf.pages[27]
-	page.merge_page(new_pdf.pages[5])
-	output.add_page(page)
-
-	page=existing_pdf.pages[28]
-	output.add_page(page)
-
-	page=existing_pdf.pages[29]
-	output.add_page(page) """
-
-	page = existin_cover_pdf.pages[0]
-	page.merge_page(new_pdf.pages[0])
-	output.add_page(page)
-
-	for i in range(1, 31):
-		page = existing_pdf.pages[i-1]
+	for i in range(0, 17):
+		page = existing_pdf.pages[i]
 		page.merge_page(new_pdf.pages[i])
 		output.add_page(page)
 
