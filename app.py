@@ -1,6 +1,6 @@
 import os
 from bookmaker.BookMaker import generatePDF 
-from flask import Flask, send_file, request
+from flask import Flask, render_template, request, redirect, url_for, session, send_file
 from flask_cors import CORS
 from dotenv import load_dotenv
 
@@ -16,6 +16,11 @@ STATIC_FOLDER = os.path.join(CURRENT_FOLDER, "static")
 @app.route("/")
 def index():
     return {"status": "running"}
+
+@app.route("/form/", methods=["GET", "POST"])
+def form():
+    return render_template('form.html', error="")
+
 
 @app.route("/getbook/")
 def getbook():
