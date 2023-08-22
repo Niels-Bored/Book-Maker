@@ -30,10 +30,6 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	encabezado4 = "I will allways love you"
 	encabezado5 = "precious little one."
 
-	wrapper = textwrap.TextWrapper(width=30)
-	word_list = wrapper.wrap(text = dedication)
-	position = 480
-
 	#Portada
 	custom_page_size = (1200, 1000)
 	c.setPageSize(custom_page_size)
@@ -48,11 +44,15 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.drawString(100, 400, "SAMPLE")
 
 	c.showPage()
+
+	wrapper = textwrap.TextWrapper(width=42)
+	word_list = wrapper.wrap(text = dedication)
+	position = 530
 	
 	#Página 1
-	c.setFont('pete', 25)
+	c.setFont('pete', 15)
 	for element in word_list:
-		c.drawString(810-(len(element)/2)*7.5, position, element)
+		c.drawString(855-(len(element)/2)*7.5, position, element)
 		position-=40
 	
 	c.setFont('arial', 80)
@@ -181,4 +181,4 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	output_stream.close()
 	
 if __name__=='__main__':
-	generatePDF("Name","Here is an example full name", "17 February 2017", "Dear Person, this is a test to verify how a dedication would look like on the final document")
+	generatePDF("Name","Here is an example full name", "17 February 2017", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, perferendis dicta, maxime repellendus cupiditate facilis sequi numquam alias hic excepturi tenetur, inventore unde enim. Ipsum magnam beatae consequatur corrupti asperiores architecto neque saepe reiciendis ad nostrum in natus sapie")
