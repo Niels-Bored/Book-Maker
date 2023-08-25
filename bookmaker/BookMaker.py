@@ -45,14 +45,16 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.showPage()
 
-	wrapper = textwrap.TextWrapper(width=42)
+	dedication="Dear Viewer you can add your hand written dedication here - or if you give us your dedication message we will print it here for you."
+
+	wrapper = textwrap.TextWrapper(width=30)
 	word_list = wrapper.wrap(text = dedication)
-	position = 530
+	position = 500
 	
 	#Página 1
-	c.setFont('pete', 15)
+	c.setFont('pete', 25)
 	for element in word_list:
-		c.drawString(855-(len(element)/2)*7.5, position, element)
+		c.drawString(800-(len(element)/2)*7.5, position, element)
 		position-=40
 	
 	c.setFont('arial', 80)
