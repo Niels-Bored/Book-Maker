@@ -65,11 +65,11 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	
 	#Página 2
 	c.setFont('pete', 30)
-	c.drawString(250-(len(child_fullname)/2)*7.5, 270, child_fullname)
-	c.drawString(250-(len(date)/2)*7.5, 230, date)
+	c.drawString(240-(len(child_fullname)/2)*7.5, 270, child_fullname)
+	c.drawString(240-(len(date)/2)*7.5, 230, date)
 
 	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
+	c.setFillColorRGB(0, 0, 0, 0.3)
 	c.drawString(100, 400, "SAMPLE")
 
 	encabezado1 = "Ten little fingers"
@@ -78,6 +78,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	encabezado4 = "With a cute button nose"
 
 	c.setFont('pete', 30)
+	c.setFillColorRGB(1, 1, 1, 1)
 	c.drawString(720-(len(encabezado1)/2)*7.5, 640, encabezado1)
 	c.drawString(720-(len(encabezado2)/2)*7.5, 600, encabezado2)
 	c.drawString(700-(len(encabezado3)/2)*7.5, 560, encabezado3)
