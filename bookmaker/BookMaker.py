@@ -78,6 +78,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	encabezado4 = "With a cute button nose"
 
 	c.setFont('pete', 30)
+	c.setFillColorRGB(0, 0, 0, 0.5)
 	c.drawString(720-(len(encabezado1)/2)*7.5, 640, encabezado1)
 	c.drawString(720-(len(encabezado2)/2)*7.5, 600, encabezado2)
 	c.drawString(700-(len(encabezado3)/2)*7.5, 560, encabezado3)
