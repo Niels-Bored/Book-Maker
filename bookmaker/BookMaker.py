@@ -41,7 +41,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
-	c.drawString(200, 400, "SAMPLE")
+	c.drawString(250, 400, "SAMPLE")
 
 	c.showPage()
 
@@ -59,7 +59,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
-	c.drawString(200, 400, "SAMPLE")
+	c.drawString(250, 400, "SAMPLE")
 
 	c.showPage()
 	
@@ -70,7 +70,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.setFont('arial', 160)
 	c.setFillColorRGB(0, 0, 0, 0.2)
-	c.drawString(200, 400, "SAMPLE")
+	c.drawString(250, 400, "SAMPLE")
 
 	encabezado1 = "Ten little fingers"
 	encabezado2 = "Ten tiny toes"
@@ -86,16 +86,16 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
-	c.drawString(200, 400, "SAMPLE")	
+	c.drawString(250, 400, "SAMPLE")	
 
 	c.showPage()
 
-	for i in range(2):
-		c.setFont('arial', 120)
-		c.setFillColorRGB(0, 0, 0, 0.2)
-		c.drawString(200, 400, "SAMPLE")
+	//for i in range(2):
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
+	c.drawString(250, 400, "SAMPLE")
 
-		c.showPage()
+	c.showPage()
 
 	encabezado1 = f"{child_name} you are"
 	encabezado2 = "A bright shining star"
@@ -112,14 +112,14 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
-	c.drawString(200, 400, "SAMPLE")
+	c.drawString(250, 400, "SAMPLE")
 
 	c.showPage()
 
 	for i in range(8):
 		c.setFont('arial', 120)
 		c.setFillColorRGB(0, 0, 0, 0.5)
-		c.drawString(200, 400, "SAMPLE")
+		c.drawString(250, 400, "SAMPLE")
 
 		c.showPage()
 
@@ -134,7 +134,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
-	c.drawString(200, 400, "SAMPLE")	
+	c.drawString(250, 400, "SAMPLE")	
 
 	c.showPage()
 
@@ -153,14 +153,14 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
-	c.drawString(200, 400, "SAMPLE")
+	c.drawString(250, 400, "SAMPLE")
 
 	c.showPage()
 
 	for i in range(3):
 		c.setFont('arial', 120)
 		c.setFillColorRGB(0, 0, 0, 0.2)
-		c.drawString(200, 400, "SAMPLE")
+		c.drawString(250, 400, "SAMPLE")
 
 		c.showPage()
 
