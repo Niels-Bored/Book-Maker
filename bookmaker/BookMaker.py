@@ -39,9 +39,9 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.setFont('emilya', 110)
 	c.drawString(800-(len(child_name)/2)*10, 390, child_name)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
+	c.drawString(400, 400, "SAMPLE")
 
 	c.showPage()
 
@@ -57,8 +57,8 @@ def generatePDF(child_name, child_fullname, date, dedication):
 		c.drawString(800-(len(element)/2)*7.5, position, element)
 		position-=40
 	
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
 	c.drawString(100, 400, "SAMPLE")
 
 	c.showPage()
@@ -78,21 +78,21 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	encabezado4 = "With a cute button nose"
 
 	c.setFont('pete', 30)
-	c.setFillColorRGB(0, 0, 0, 0.5)
+	c.setFillColorRGB(0, 0, 0, 1)
 	c.drawString(720-(len(encabezado1)/2)*7.5, 640, encabezado1)
 	c.drawString(720-(len(encabezado2)/2)*7.5, 600, encabezado2)
 	c.drawString(700-(len(encabezado3)/2)*7.5, 560, encabezado3)
 	c.drawString(700-(len(encabezado4)/2)*7.5, 520, encabezado4)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
 	c.drawString(100, 400, "SAMPLE")	
 
 	c.showPage()
 
 	for i in range(2):
-		c.setFont('arial', 80)
-		c.setFillColorRGB(0, 0, 0, 0.5)
+		c.setFont('arial', 120)
+		c.setFillColorRGB(0, 0, 0, 0.2)
 		c.drawString(100, 400, "SAMPLE")
 
 		c.showPage()
@@ -110,14 +110,14 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.drawString(220-(len(encabezado3)/2)*7.5, 130, encabezado3)
 	c.drawString(240-(len(encabezado4)/2)*7.5, 90, encabezado4)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
 	c.drawString(100, 400, "SAMPLE")
 
 	c.showPage()
 
 	for i in range(8):
-		c.setFont('arial', 80)
+		c.setFont('arial', 120)
 		c.setFillColorRGB(0, 0, 0, 0.5)
 		c.drawString(100, 400, "SAMPLE")
 
@@ -132,8 +132,8 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.drawString(260-(len(encabezado1)/2)*7.5, 130, encabezado1)
 	c.drawString(260-(len(encabezado2)/2)*7.5, 100, encabezado2)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
 	c.drawString(100, 400, "SAMPLE")	
 
 	c.showPage()
@@ -151,15 +151,15 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.drawString(270-(len(encabezado3)/2)*7.5, 100, encabezado3)
 	c.drawString(260-(len(encabezado4)/2)*7.5, 70, encabezado4)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
 	c.drawString(100, 400, "SAMPLE")
 
 	c.showPage()
 
 	for i in range(3):
-		c.setFont('arial', 80)
-		c.setFillColorRGB(0, 0, 0, 0.5)
+		c.setFont('arial', 120)
+		c.setFillColorRGB(0, 0, 0, 0.2)
 		c.drawString(100, 400, "SAMPLE")
 
 		c.showPage()
