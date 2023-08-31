@@ -90,7 +90,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.showPage()
 
-	//for i in range(2):
+	#for i in range(2):
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
 	c.drawString(250, 400, "SAMPLE")
