@@ -86,12 +86,12 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.showPage()
 
-	#for i in range(2):
-	c.setFont('arial', 120)
-	c.setFillColorRGB(0, 0, 0, 0.2)
-	c.drawString(275, 400, "SAMPLE")
-
-	c.showPage()
+	for i in range(2):
+		c.setFont('arial', 120)
+		c.setFillColorRGB(0, 0, 0, 0.2)
+		c.drawString(275, 400, "SAMPLE")
+	
+		c.showPage()
 
 	encabezado1 = f"{child_name} you are"
 	encabezado2 = "A bright shining star"
