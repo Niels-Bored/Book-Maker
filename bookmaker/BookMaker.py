@@ -54,7 +54,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	#Página 1
 	c.setFont('pete', 25)
 	for element in word_list:
-		c.drawString(800-(len(element)/2)*7.5, position, element)
+		c.drawString(800-(len(element)/2)*7.5, position, element+/n)
 		position-=40
 	
 	c.setFont('arial', 120)
