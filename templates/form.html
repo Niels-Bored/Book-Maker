@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-textarea {
-    overflow: hidden;
-    resize: none;  
-}
-</style>
 <script>
-    let t = document.getElementById("WERT"); // grab the dom element
-
-    t.addEventListener("keydown", (e) => { // once any key is pressed
-    if (e.keyCode === 13) { // if the key code is 13 (ENTER)
-    e.preventDefault(); // prevent usual browser behavour
-  }
+    $("textarea").keydown(function(e){
+   if (e.keyCode == 13)
+   {
+       // prevent default behavior
+       e.preventDefault();
+   }
 });
 </script>
     
@@ -41,7 +35,7 @@ textarea {
         </div>
         <div class="mb-3">
             <label class="form-label">Dedication:</label></BR>            
-            <textarea id = 'WERT' style="height: 100px;" wrap="soft" cols="30" maxlength="300" name="dedication" rows="10" placeholder='Dear Sophie,
+            <textarea style="height: 100px; overflow: hidden;  resize: none;" wrap="soft" cols="30" maxlength="300" name="dedication" rows="10" placeholder='Dear Sophie,
 We love you lots!,
 Love,
 Nanna and Poppy'></textarea>
