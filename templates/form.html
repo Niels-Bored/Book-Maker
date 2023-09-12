@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-    document.getElementById('myTextarea').addEventListener('input', function(event) {
-        const textarea = event.target;
-        const charCount = textarea.value.length;
-
-        // Update the counter
-        document.getElementById('charCount').textContent = charCount;
-    });
+function countChar(val) {
+  var len = val.value.length;
+  if (len >= 500) {
+    val.value = val.value.substring(0, 500);
+  } else {
+    $('#charNum').text(500 - len);
+  }
+};
 </script>
     
 <head>
@@ -35,12 +36,12 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Dedication:</label></BR>            
-            <textarea id = 'WERT' style="overflow: hidden;  resize: none;" wrap="soft" cols="30" maxlength="300" name="dedication" rows="10" placeholder='Dear Sophie,
+            <textarea onkeyup="countChar(this)" style="overflow: hidden;  resize: none;" wrap="soft" cols="30" maxlength="300" name="dedication" rows="10" placeholder='Dear Sophie,
 We love you lots!,
 Love,
 Nanna and Poppy'></textarea>
         </div>
-        <div>Characters: <span id="charCount">0</span></div>
+       <div id="charNum"></div>
 Text should be no more than 300 characters and no more than 10 lines long.
         <div class="mb-3">
             <button type="submit" class="btn btn-dark">View Preview</button>
