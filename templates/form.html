@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-    document.getElementById('WERT').addEventListener('input', function(event) {
+    document.getElementById('myTextarea').addEventListener('input', function(event) {
         const textarea = event.target;
-        const charCount = textarea.value.length;
-
+        const count = textarea.value.length;
+    
         // Update the counter
-        document.getElementById('charCount').textContent = charCount; 
+        document.getElementById('charCount').innerText = count + (count === 1 ? ' character' : ' characters');
     });
 </script>
     
