@@ -45,7 +45,9 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	c.showPage()
 
-	dedication="Dear Viewer you can add your hand written dedication here - or if you provide us your dedication message we will print it here for you."
+	dedication="Dear Viewer,
+ you can add your hand written dedication here - or if you provide us your dedication message we will print it here for you.
+BelovedCo Team"
 
 	wrapper = textwrap.TextWrapper(width=30)
 	word_list = wrapper.wrap(text = dedication)
