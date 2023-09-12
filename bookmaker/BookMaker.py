@@ -15,12 +15,17 @@ emilya_font = os.path.join (current_folder, f"emilya_birthday.ttf")
 pete_font = os.path.join (current_folder, f"pete_15.ttf")
 arial_font = os.path.join (current_folder, f"arial_bold.ttf")
 
-#def custom_wrap(text, width):
+def custom_wrap(text, width):
     # Split text at newline characters
-#    lines = text.split('\n')
+    lines = text.split('\n')
     
     # Wrap each line to fit the given width
- #   return wrapped_lines = [textwrap.fill(line, width=width) for line in lines]
+    wrapped = [textwrap.wrap(line, width=width) for line in lines]
+    
+    # Flatten the list of lists
+    flattened_wrapped = [item for sublist in wrapped for item in sublist]
+    
+    return flattened_wrapped
     
 def generatePDF(child_name, child_fullname, date, dedication):
 	packet = io.BytesIO()
@@ -53,9 +58,9 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.showPage()
 
 	dedication='Dear Viewer,' + '\n' + 'you can add your hand written dedication here - or if you provide us your dedication message we will print it here for you.' + '\n' + 'BelovedCo Team'	
-	#word_list = custom_wrap(dedication, 30)
-	wrapper = textwrap.TextWrapper(width=30)
-	word_list = wrapper.wrap(text = dedication)
+	word_list = custom_wrap(dedication, 30)
+	#wrapper = textwrap.TextWrapper(width=30)
+	#word_list = wrapper.wrap(text = dedication)
 	position = 500
 	
 	#Página 1
