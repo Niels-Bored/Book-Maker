@@ -3,10 +3,10 @@
 <script>
     document.getElementById('myTextarea').addEventListener('input', function(event) {
         const textarea = event.target;
-        const count = textarea.value.length;
-    
+        const charCount = textarea.value.length;
+
         // Update the counter
-        document.getElementById('charCount').innerText = count + (count === 1 ? ' character' : ' characters');
+        document.getElementById('charCount').textContent = charCount;
     });
 </script>
     
