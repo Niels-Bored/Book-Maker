@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-    document.getElementById('WERT').addEventListener('keydown', function(event) {
-        // Check for the Enter key
-        if (event.key === 'Enter' || event.keyCode === 13) {
-            event.preventDefault();
-        }
-    });
     document.getElementById('WERT').addEventListener('input', function(event) {
         const textarea = event.target;
         const charCount = textarea.value.length;
