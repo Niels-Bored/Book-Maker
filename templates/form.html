@@ -38,7 +38,7 @@ Text should be no more than 300 characters and no more than 10 lines long.
             <button type="submit" class="btn btn-dark">View Preview</button>
         </div>
     </form>
-<script defer>
+<script >
     document.getElementById('myTextarea').addEventListener('input', function(event) {
         const textarea = event.target;
         const charCount = textarea.value.length;
@@ -46,6 +46,12 @@ Text should be no more than 300 characters and no more than 10 lines long.
         // Update the counter
         document.getElementById('charCount').textContent = charCount;
     });
+    document.getElementById('myTextarea').addEventListener('keydown', function(event) {
+        // Check for the Enter key
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            event.preventDefault();
+        }
+    });    
 </script>    
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
