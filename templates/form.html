@@ -53,10 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let totalChars = 0;
         let validLinesCount = 0;
+        let i = 0;
 
         for (let line of lines) {
             totalChars += line.length;
-            validLinesCount = validLinesCount + Math.ceil(line.length / 45);
+            i = i+1;
+            validLinesCount = validLinesCount + Math.ceil(line.length / 45)+i;
         }  // This is where the 'for' loop should end
 
         // Update the counters
