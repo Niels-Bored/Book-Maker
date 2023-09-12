@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-var textarea = document.querySelector("textarea");
+    document.getElementById('myTextarea').addEventListener('input', function(event) {
+        const textarea = event.target;
+        const charCount = textarea.value.length;
 
-textarea.addEventListener("input", function(){
-    var maxlength = this.getAttribute("maxlength");
-    var currentLength = this.value.length;
-
-    if( currentLength >= maxlength ){
-        console.log("You have reached the maximum number of characters.");
-    }else{
-        console.log(maxlength - currentLength + " chars left");
-    }
-});
+        // Update the counter
+        document.getElementById('charCount').textContent = charCount;
+    });
 </script>
     
 <head>
@@ -40,12 +35,12 @@ textarea.addEventListener("input", function(){
         </div>
         <div class="mb-3">
             <label class="form-label">Dedication:</label></BR>            
-            <textarea onkeyup="countChar(this)" style="overflow: hidden;  resize: none;" wrap="soft" cols="30" maxlength="300" name="dedication" rows="10" placeholder='Dear Sophie,
+            <textarea id="myTextarea" style="overflow: hidden;  resize: none;" wrap="soft" cols="30" maxlength="300" name="dedication" rows="10" placeholder='Dear Sophie,
 We love you lots!,
 Love,
 Nanna and Poppy'></textarea>
         </div>
-       <div id="charNum">0</div>
+        <div>Characters: <span id="charCount">0</span></div>
 Text should be no more than 300 characters and no more than 10 lines long.
        <div class="mb-3">
             <button type="submit" class="btn btn-dark">View Preview</button>
