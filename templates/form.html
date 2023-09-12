@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<script defer>
-    document.getElementById('myTextarea').addEventListener('input', function(event) {
-        const textarea = event.target;
-        const charCount = textarea.value.length;
 
-        // Update the counter
-        document.getElementById('charCount').textContent = charCount;
-    });
-</script>
     
 <head>
     <meta charset="UTF-8">
@@ -46,6 +38,15 @@ Text should be no more than 300 characters and no more than 10 lines long.
             <button type="submit" class="btn btn-dark">View Preview</button>
         </div>
     </form>
+<script defer>
+    document.getElementById('myTextarea').addEventListener('input', function(event) {
+        const textarea = event.target;
+        const charCount = textarea.value.length;
+
+        // Update the counter
+        document.getElementById('charCount').textContent = charCount;
+    });
+</script>    
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>
