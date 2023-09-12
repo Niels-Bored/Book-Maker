@@ -56,7 +56,7 @@ BelovedCo Team"
 	#Página 1
 	c.setFont('pete', 25)
 	for element in word_list:
-		c.drawString(800-(len(element)/2)*7.5, position, element+\n)
+		c.drawString(800-(len(element)/2)*7.5, position, element)
 		position-=40
 	
 	c.setFont('arial', 120)
