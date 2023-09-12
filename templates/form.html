@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    textarea {
+        resize: none;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,11 +29,11 @@
             <input type="text" class="form-control" name="date" required>
         </div>
         <div class="mb-3">
-            <label class="form-label">Dedication:</label>            
-            <textarea cols="30" maxlength="300" name="dedication" rows="10" placeholder='Dear Sophie,
-                we love you lots!,
-                Love,
-                Nanna and Poppy'></textarea>
+            <label class="form-label">Dedication:</label></BR>            
+            <textarea wrap="hard" cols="30" maxlength="300" name="dedication" rows="10" placeholder='Dear Sophie,
+We love you lots!,
+Love,
+Nanna and Poppy'></textarea>
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-dark">View Preview</button>
