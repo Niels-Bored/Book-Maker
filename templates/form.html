@@ -56,9 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         for (let line of lines) {
             totalChars += line.length;
-            validLinesCount = validLinesCount + Math.ceil(line.length/45);
-            }
-        }
+            validLinesCount = validLinesCount + Math.ceil(line.length / 45);
+        }  // This is where the 'for' loop should end
 
         // Update the counters
         const charCountElem = document.getElementById('charCount');
@@ -81,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
 </script>    
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
