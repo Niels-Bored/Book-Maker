@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-function countChar(val) {
-  var len = val.value.length;
-  if (len >= 500) {
-    val.value = val.value.substring(0, 500);
-  } else {
-    $('#charNum').text(500 - len);
-  }
-};
+var textarea = document.querySelector("textarea");
+
+textarea.addEventListener("input", function(){
+    var maxlength = this.getAttribute("maxlength");
+    var currentLength = this.value.length;
+
+    if( currentLength >= maxlength ){
+        console.log("You have reached the maximum number of characters.");
+    }else{
+        console.log(maxlength - currentLength + " chars left");
+    }
+});
 </script>
     
 <head>
