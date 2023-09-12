@@ -20,11 +20,8 @@ def custom_wrap(text, width):
     lines = text.split('\n')
     
     # Wrap each line to fit the given width
-    wrapped_lines = [textwrap.fill(line, width=width) for line in lines]
+    return wrapped_lines = [textwrap.fill(line, width=width) for line in lines]
     
-    # Join the wrapped lines back together
-    return '\n'.join(wrapped_lines)
-	
 def generatePDF(child_name, child_fullname, date, dedication):
 	packet = io.BytesIO()
 	
@@ -56,9 +53,9 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.showPage()
 
 	dedication='Dear Viewer,' + '\n' + 'you can add your hand written dedication here - or if you provide us your dedication message we will print it here for you.' + '\n' + 'BelovedCo Team'	
-	#dedication = custom_wrap(dedication, 30)
-	wrapper = textwrap.TextWrapper(width=30)
-	word_list = wrapper.wrap(text = dedication)
+	word_list = custom_wrap(dedication, 30)
+	#wrapper = textwrap.TextWrapper(width=30)
+	#word_list = wrapper.wrap(text = dedication)
 	position = 500
 	
 	#Página 1
