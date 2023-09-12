@@ -15,12 +15,12 @@ emilya_font = os.path.join (current_folder, f"emilya_birthday.ttf")
 pete_font = os.path.join (current_folder, f"pete_15.ttf")
 arial_font = os.path.join (current_folder, f"arial_bold.ttf")
 
-def custom_wrap(text, width):
+#def custom_wrap(text, width):
     # Split text at newline characters
-    lines = text.split('\n')
+#    lines = text.split('\n')
     
     # Wrap each line to fit the given width
-    return wrapped_lines = [textwrap.fill(line, width=width) for line in lines]
+ #   return wrapped_lines = [textwrap.fill(line, width=width) for line in lines]
     
 def generatePDF(child_name, child_fullname, date, dedication):
 	packet = io.BytesIO()
