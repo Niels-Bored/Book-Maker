@@ -7,6 +7,12 @@
             event.preventDefault();
         }
     });
+ document.getElementById('WERT').addEventListener('input', function(event) {
+        const textarea = event.target;
+        const charCount = textarea.value.length;
+
+        // Update the counter
+        document.getElementById('charCount').textContent = charCount;    
 </script>
     
 <head>
@@ -39,6 +45,8 @@ We love you lots!,
 Love,
 Nanna and Poppy'></textarea>
         </div>
+        <div>Characters: <span id="charCount">0</span></div>
+Text should be no more than 300 characters and no more than 10 lines long.
         <div class="mb-3">
             <button type="submit" class="btn btn-dark">View Preview</button>
         </div>
