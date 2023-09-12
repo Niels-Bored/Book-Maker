@@ -27,9 +27,9 @@ def getbook():
     child_name = request.args.get("child_name")
     child_fullname = request.args.get("child_fullname")
     date = request.args.get("date")
-    #dedication = request.args.get("dedication")
+    dedication = request.args.get("dedication")
 
-    generatePDF(child_name, child_fullname, date, "")
+    generatePDF(child_name, child_fullname, date, dedication)
 
     file_path = os.path.join(STATIC_FOLDER, f"{child_name}.pdf")
 
