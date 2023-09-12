@@ -64,13 +64,13 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	position = 500
 	
 	#Página 1
-	c.setFont('pete', 25)
+	c.setFont('pete', 20)
 	longest_string = max(word_list, key=len)
 	for element in word_list:
 		element = element.replace('NEWLINE','\n')					
-		c.drawString(800-(len(longest_string)/2)*7.5, position, element)		
+		c.drawString(800-(len(longest_string)/2)*9, position, element)		
 		#c.drawString(600, position, element)				
-		position-=40
+		position-=32
 	
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
