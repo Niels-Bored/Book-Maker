@@ -39,18 +39,23 @@ Text should be no more than 300 characters and no more than 10 lines long.
         </div>
     </form>
 <script >
-    document.getElementById('myTextarea').addEventListener('input', function(event) {
+ocument.getElementById('myTextarea').addEventListener('input', function(event) {
         const textarea = event.target;
         const charCount = textarea.value.length;
+        const lines = textarea.value.split('\n');
 
-        // Update the counter
-        document.getElementById('charCount').textContent = charCount;
-    });
-    document.getElementById('myTextarea').addEventListener('keydown', function(event) {
-        // Check for the Enter key
-        if (event.key === 'Enter' || event.keyCode === 13) {
-            event.preventDefault();
+        let validLinesCount = 0;
+        for (let line of lines) {
+            if (line.length <= 45) {
+                validLinesCount += 1;
+            } else {
+                // Do something if a line exceeds 45 characters, like showing an error message.
+            }
         }
+
+        // Update the counters
+        document.getElementById('charCount').textContent = charCount;
+        document.getElementById('lineCount').textContent = validLinesCount;
     });    
 </script>    
 </body>
