@@ -15,6 +15,18 @@ emilya_font = os.path.join (current_folder, f"emilya_birthday.ttf")
 pete_font = os.path.join (current_folder, f"pete_15.ttf")
 arial_font = os.path.join (current_folder, f"arial_bold.ttf")
 
+def custom_wrap(text, width):
+    # Split text at newline characters
+    lines = text.split('\n')
+    
+    # Wrap each line to fit the given width
+    wrapped = [textwrap.wrap(line, width=width) for line in lines]
+    
+    # Flatten the list of lists
+    flattened_wrapped = [item for sublist in wrapped for item in sublist]
+    
+    return flattened_wrapped
+    
 def generatePDF(child_name, child_fullname, date, dedication):
 	packet = io.BytesIO()
 	
@@ -39,38 +51,37 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.setFont('emilya', 110)
 	c.drawString(800-(len(child_name)/2)*10, 390, child_name)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
+	c.drawString(275, 400, "SAMPLE")
 
 	c.showPage()
 
-	dedication="Dear Viewer you can add your hand written dedication here - or if you provide us your dedication message we will print it here for you."
-
-	wrapper = textwrap.TextWrapper(width=30)
-	word_list = wrapper.wrap(text = dedication)
+	#dedication='Dear Viewer,' + '\n' + 'you can add your hand written dedication here - or if you provide us your dedication message we will print it here for you.' + '\n' + 'BelovedCo Team'	
+	word_list = custom_wrap(dedication, 45)
+	#wrapper = textwrap.TextWrapper(width=30)
+	#word_list = wrapper.wrap(text = dedication)
 	position = 500
 	
 	#Página 1
-	c.setFont('pete', 25)
+	c.setFont('pete', 20)
+	longest_string = max(word_list, key=len)
 	for element in word_list:
-		c.drawString(800-(len(element)/2)*7.5, position, element)
-		position-=40
+		element = element.replace('NEWLINE','\n')					
+		c.drawString(800-(len(longest_string)/2)*6, position, element)		
+		#c.drawString(600, position, element)				
+		position-=30
 	
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
+	c.drawString(275, 400, "SAMPLE")
 
 	c.showPage()
 	
 	#Página 2
 	c.setFont('pete', 30)
-	c.drawString(210-(len(child_fullname)/2)*7.5, 270, child_fullname)
-	c.drawString(240-(len(date)/2)*7.5, 230, date)
-
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")
+	c.drawString(250-(len(child_fullname)/2)*7.5, 270, child_fullname)
+	c.drawString(250-(len(date)/2)*7.5, 230, date)
 
 	encabezado1 = "Ten little fingers"
 	encabezado2 = "Ten tiny toes"
@@ -78,22 +89,23 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	encabezado4 = "With a cute button nose"
 
 	c.setFont('pete', 30)
+	c.setFillColorRGB(0, 0, 0, 1)
 	c.drawString(720-(len(encabezado1)/2)*7.5, 640, encabezado1)
 	c.drawString(720-(len(encabezado2)/2)*7.5, 600, encabezado2)
 	c.drawString(700-(len(encabezado3)/2)*7.5, 560, encabezado3)
 	c.drawString(700-(len(encabezado4)/2)*7.5, 520, encabezado4)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")	
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
+	c.drawString(275, 400, "SAMPLE")	
 
 	c.showPage()
 
 	for i in range(2):
-		c.setFont('arial', 80)
-		c.setFillColorRGB(0, 0, 0, 0.5)
-		c.drawString(100, 400, "SAMPLE")
-
+		c.setFont('arial', 120)
+		c.setFillColorRGB(0, 0, 0, 0.2)
+		c.drawString(275, 400, "SAMPLE")
+	
 		c.showPage()
 
 	encabezado1 = f"{child_name} you are"
@@ -109,16 +121,16 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.drawString(220-(len(encabezado3)/2)*7.5, 130, encabezado3)
 	c.drawString(240-(len(encabezado4)/2)*7.5, 90, encabezado4)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
+	c.drawString(275, 400, "SAMPLE")
 
 	c.showPage()
 
 	for i in range(8):
-		c.setFont('arial', 80)
-		c.setFillColorRGB(0, 0, 0, 0.5)
-		c.drawString(100, 400, "SAMPLE")
+		c.setFont('arial', 120)
+		c.setFillColorRGB(0, 0, 0, 0.2)
+		c.drawString(275, 400, "SAMPLE")
 
 		c.showPage()
 
@@ -131,9 +143,9 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.drawString(260-(len(encabezado1)/2)*7.5, 130, encabezado1)
 	c.drawString(260-(len(encabezado2)/2)*7.5, 100, encabezado2)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")	
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
+	c.drawString(275, 400, "SAMPLE")	
 
 	c.showPage()
 
@@ -150,16 +162,16 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.drawString(270-(len(encabezado3)/2)*7.5, 100, encabezado3)
 	c.drawString(260-(len(encabezado4)/2)*7.5, 70, encabezado4)
 
-	c.setFont('arial', 80)
-	c.setFillColorRGB(0, 0, 0, 0.5)
-	c.drawString(100, 400, "SAMPLE")
+	c.setFont('arial', 120)
+	c.setFillColorRGB(0, 0, 0, 0.2)
+	c.drawString(275, 400, "SAMPLE")
 
 	c.showPage()
 
 	for i in range(3):
-		c.setFont('arial', 80)
-		c.setFillColorRGB(0, 0, 0, 0.5)
-		c.drawString(100, 400, "SAMPLE")
+		c.setFont('arial', 120)
+		c.setFillColorRGB(0, 0, 0, 0.2)
+		c.drawString(275, 400, "SAMPLE")
 
 		c.showPage()
 
