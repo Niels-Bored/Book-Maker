@@ -65,10 +65,11 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	
 	#Página 1
 	c.setFont('pete', 20)
-	longest_string = max(word_list, key=len)
+	#longest_string = max(word_list, key=len)
 	for element in word_list:
 		element = element.replace('NEWLINE','\n')					
-		c.drawString(800-(len(longest_string)/2)*6, position, element)		
+		#c.drawString(800-(len(longest_string)/2)*6, position, element)	
+		c.drawString(800-(len(element)/2)*6, position, element)
 		#c.drawString(600, position, element)				
 		position-=30
 	
