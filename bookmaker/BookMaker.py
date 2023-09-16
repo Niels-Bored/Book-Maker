@@ -59,18 +59,18 @@ def generatePDF(child_name, child_fullname, date, dedication):
 
 	#dedication='Dear Viewer,' + '\n' + 'you can add your hand written dedication here - or if you provide us your dedication message we will print it here for you.' + '\n' + 'BelovedCo Team'	
 	word_list = custom_wrap(dedication, 45)
-	#wrapper = textwrap.TextWrapper(width=30)
-	#word_list = wrapper.wrap(text = dedication)
 	position = 500
 	
 	#Página 1
 	c.setFont('pete', 20)
+
 	#longest_string = max(word_list, key=len)
 	for element in word_list:
 		element = element.replace('NEWLINE','\n')					
 		#c.drawString(800-(len(longest_string)/2)*6, position, element) # left aligned.	
 		c.drawString(800-(len(element)/2)*6, position, element) # centred
-		#c.drawString(600, position, element)				
+		#c.drawString(600, position, element)								
+
 		position-=30
 	
 	c.setFont('arial', 120)
