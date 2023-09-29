@@ -27,7 +27,7 @@ def custom_wrap(text, width):
     
     return flattened_wrapped
     
-def generatePDF(child_name, child_fullname, date, dedication):
+def generatePDF(file_name, child_name, child_fullname, date, dedication):
 	packet = io.BytesIO()
 	
 	pdfmetrics.registerFont(TTFont('emilya', emilya_font))
@@ -47,9 +47,9 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	c.setPageSize(custom_page_size)
 	c.setFillColorRGB(1, 1, 0.2, 1)
 	c.setFont('emilya', 50)
-	c.drawString(255-(len(child_name)/2)*7.5, 360, child_name)
+	c.drawString(260-(len(child_name)/2)*7.5, 400, child_name)
 	c.setFont('emilya', 110)
-	c.drawString(800-(len(child_name)/2)*10, 390, child_name)
+	c.drawString(830-(len(child_name)/2)*10, 410, child_name)
 
 	c.setFont('arial', 120)
 	c.setFillColorRGB(0, 0, 0, 0.2)
@@ -68,7 +68,7 @@ def generatePDF(child_name, child_fullname, date, dedication):
 	for element in word_list:
 		element = element.replace('NEWLINE','\n')					
 		#c.drawString(800-(len(longest_string)/2)*6, position, element) # left aligned.	
-		c.drawString(800-(len(element)/2)*6, position, element) # centred
+		c.drawString(850-(len(element)/2)*6, position, element) # centred
 		#c.drawString(600, position, element)								
 
 		position-=30
@@ -190,10 +190,10 @@ def generatePDF(child_name, child_fullname, date, dedication):
 		page.merge_page(new_pdf.pages[i])
 		output.add_page(page)
 
-	new_pdf = os.path.join (files_folder, f"{child_name}.pdf")
+	new_pdf = os.path.join (files_folder, f"{file_name}.pdf")
 	output_stream = open(new_pdf, "wb")
 	output.write(output_stream)
 	output_stream.close()
 	
 if __name__=='__main__':
-	generatePDF("Name","Here is an example full name", "17 February 2017", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, perferendis dicta, maxime repellendus cupiditate facilis sequi numquam alias hic excepturi tenetur, inventore unde enim. Ipsum magnam beatae consequatur corrupti asperiores architecto neque saepe reiciendis ad nostrum in natus sapie")
+	generatePDF("filename","Name","Here is an example full name", "17 February 2017", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, perferendis dicta, maxime repellendus cupiditate facilis sequi numquam alias hic excepturi tenetur, inventore unde enim. Ipsum magnam beatae consequatur corrupti asperiores architecto neque saepe reiciendis ad nostrum in natus sapie")

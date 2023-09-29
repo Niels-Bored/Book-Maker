@@ -24,14 +24,15 @@ def form():
 
 @app.route("/getbook/")
 def getbook():
+    file_name = request.args.get("file_name")
     child_name = request.args.get("child_name")
     child_fullname = request.args.get("child_fullname")
     date = request.args.get("date")
     dedication = request.args.get("dedication")
 
-    generatePDF(child_name, child_fullname, date, dedication)
+    generatePDF(file_name, child_name, child_fullname, date, dedication)
 
-    file_path = os.path.join(STATIC_FOLDER, f"{child_name}.pdf")
+    file_path = os.path.join(STATIC_FOLDER, f"{file_name}.pdf")
 
     return send_file(file_path)
 
